@@ -23,14 +23,32 @@
             setMinutes(e.target.value)
         }
 
+        const reset = () => {
+            setMinutes(0)
+        }
+
         return (
           <div>
             <h1>Unit Convertor</h1>
-            <label htmlFor="minutes">Minutes</label>
-            <input id="minutes" value={minutes} placeholder="Minutes" type="number" onChange={onChangeMinutesInput}/>
             <h4>You want to convert {minutes}</h4>
-            <label htmlFor="hours">Hours</label>
-            <input id="hours" value={Math.round(minutes / 60)} placeholder="Hours" type="number" />
+            <div>
+                <label htmlFor="minutes">Minutes</label>
+                <input
+                    id="minutes"
+                    value={minutes}
+                    placeholder="Minutes"
+                    type="number"
+                    onChange={onChangeMinutesInput}/>
+            </div>
+            <div>
+                <label htmlFor="hours">Hours</label>
+                <input
+                    id="hours"
+                    value={Math.round(minutes / 60)}
+                    placeholder="Hours"
+                    type="number" />
+            </div>
+            <button onClick={reset}>Reset</button>
           </div>
         );
       };
